@@ -24,7 +24,7 @@ class _AnalystRatingCardState extends State<AnalystRatingCard> {
         height: isExpanded ? 503.sp : 216.sp,
         decoration: BoxDecoration(
           color: Colors.black,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
           children: [

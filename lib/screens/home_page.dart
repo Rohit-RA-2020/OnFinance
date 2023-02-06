@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:on_finance/widgets/portfolio_expenses_card.dart';
 import 'package:on_finance/widgets/technical_indicator.dart';
 
 import '../widgets/about_card.dart';
@@ -171,6 +172,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const ChartSection(),
           const AnalystRatingCard(),
+          const PortfolioExpenses(),
           const AboutCard(),
           const TechnicalIndicators(),
         ],
@@ -178,4 +180,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
