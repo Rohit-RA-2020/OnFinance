@@ -1,3 +1,3 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final lineProvider = StateProvider((ref) => false);
+final lineProvider = StateProvider((ref) => true);

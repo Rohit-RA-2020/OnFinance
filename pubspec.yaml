@@ -40,6 +40,8 @@ dependencies:
   font_awesome_flutter: ^10.3.0
   syncfusion_flutter_sliders: ^20.4.48
   flutter_riverpod: ^2.1.3
+  syncfusion_flutter_charts: ^20.4.48
+  fl_chart: ^0.60.0
 
 dev_dependencies:
   flutter_test:
