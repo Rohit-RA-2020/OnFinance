@@ -18,7 +18,7 @@ class _PortfolioExpensesState extends State<PortfolioExpenses> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         width: 366.sp,
-        height: isExpanded ? 180.sp : 150.h,
+        height: isExpanded ? 180.sp : 155.h,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.circular(8),
