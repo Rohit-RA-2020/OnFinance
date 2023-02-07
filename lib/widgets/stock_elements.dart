@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../providers.dart';
+import 'bottom_sheet.dart';
 
 class TimeBar extends ConsumerWidget {
   const TimeBar({
@@ -11,106 +13,146 @@ class TimeBar extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Container(
-          height: 49.sp,
-          width: 309.sp,
-          decoration: const BoxDecoration(
-            color: Colors.black,
-            borderRadius: BorderRadius.all(
-              Radius.circular(8),
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                height: 23.sp,
-                width: 44.sp,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF3455FF),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Center(
-                  child: Text(
-                    '1H',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14.sp,
+        ref.watch(lineProvider)
+            ? const SizedBox.shrink()
+            : Padding(
+                padding: const EdgeInsets.only(bottom: 7.0, right: 4.0),
+                child: GestureDetector(
+                  onTap: () {
+                    // show bottom sheet
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (context) => const MyBottomSheet(),
+                    );
+                  },
+                  child: Container(
+                    height: 33.sp,
+                    width: 99.sp,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF070707),
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Icons.line_axis,
+                          color: Color(0xFFCACACA),
+                        ),
+                        Text(
+                          'Indicators',
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 14.sp),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
-              Text(
-                '1D',
-                style: TextStyle(
-                  color: const Color(0xFF434343),
-                  fontSize: 14.sp,
+        Row(
+          children: [
+            Container(
+              height: 49.sp,
+              width: 309.sp,
+              decoration: const BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(8),
                 ),
               ),
-              Text(
-                '1W',
-                style: TextStyle(
-                  color: const Color(0xFF434343),
-                  fontSize: 14.sp,
-                ),
-              ),
-              Text(
-                '1M',
-                style: TextStyle(
-                  color: const Color(0xFF434343),
-                  fontSize: 14.sp,
-                ),
-              ),
-              Text(
-                '5Y',
-                style: TextStyle(
-                  color: const Color(0xFF434343),
-                  fontSize: 14.sp,
-                ),
-              )
-            ],
-          ),
-        ),
-        const SizedBox(width: 10),
-        GestureDetector(
-          onTap: () {
-            ref.read(lineProvider.notifier).state =
-                !ref.read(lineProvider.notifier).state;
-          },
-          child: Container(
-            height: 49.sp,
-            width: 49.sp,
-            decoration: const BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.all(
-                Radius.circular(4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 23.sp,
+                    width: 44.sp,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF3455FF),
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Center(
+                      child: Text(
+                        '1H',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Text(
+                    '1D',
+                    style: TextStyle(
+                      color: const Color(0xFF434343),
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                  Text(
+                    '1W',
+                    style: TextStyle(
+                      color: const Color(0xFF434343),
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                  Text(
+                    '1M',
+                    style: TextStyle(
+                      color: const Color(0xFF434343),
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                  Text(
+                    '5Y',
+                    style: TextStyle(
+                      color: const Color(0xFF434343),
+                      fontSize: 14.sp,
+                    ),
+                  )
+                ],
               ),
             ),
-            child: Center(
-              child: ref.watch(lineProvider)
-                  ? Row(
-                      children: [
-                        Icon(
-                          Icons.candlestick_chart_outlined,
-                          color: Colors.red,
-                          size: 20.sp,
-                        ),
-                        Icon(
-                          Icons.candlestick_chart_outlined,
+            const SizedBox(width: 10),
+            GestureDetector(
+              onTap: () {
+                ref.read(lineProvider.notifier).state =
+                    !ref.read(lineProvider.notifier).state;
+              },
+              child: Container(
+                height: 49.sp,
+                width: 49.sp,
+                decoration: const BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(4),
+                  ),
+                ),
+                child: Center(
+                  child: ref.watch(lineProvider)
+                      ? Row(
+                          children: [
+                            Icon(
+                              Icons.candlestick_chart_outlined,
+                              color: Colors.red,
+                              size: 20.sp,
+                            ),
+                            Icon(
+                              Icons.candlestick_chart_outlined,
+                              color: Colors.green,
+                              size: 20.sp,
+                            ),
+                          ],
+                        )
+                      : Icon(
+                          Icons.stacked_line_chart,
                           color: Colors.green,
                           size: 20.sp,
                         ),
-                      ],
-                    )
-                  : Icon(
-                      Icons.stacked_line_chart,
-                      color: Colors.green,
-                      size: 20.sp,
-                    ),
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ],
     );
