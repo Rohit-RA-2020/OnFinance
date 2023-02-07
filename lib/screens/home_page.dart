@@ -6,6 +6,7 @@ import 'package:on_finance/widgets/technical_indicator.dart';
 import '../widgets/about_card.dart';
 import '../widgets/analyst_rating_card.dart';
 import '../widgets/charts.dart';
+import '../widgets/historical_yield.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -61,7 +62,7 @@ class _HomePageState extends State<HomePage> {
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(10.0.sp),
-        color: Colors.black,
+        color: const Color(0xFF070707),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -173,6 +174,7 @@ class _HomePageState extends State<HomePage> {
           const ChartSection(),
           const AnalystRatingCard(),
           const PortfolioExpenses(),
+          const HistoricalYeild(),
           const AboutCard(),
           const TechnicalIndicators(),
         ],

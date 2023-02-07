@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -35,18 +34,22 @@ class TimeBar extends ConsumerWidget {
                       color: const Color(0xFF070707),
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.line_axis,
-                          color: Color(0xFFCACACA),
-                        ),
-                        Text(
-                          'Indicators',
-                          style:
-                              TextStyle(color: Colors.white, fontSize: 14.sp),
-                        ),
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Row(
+                        children: [
+                          const Icon(
+                            Icons.line_axis,
+                            color: Color(0xFFCACACA),
+                          ),
+                          SizedBox(width: 2.sp),
+                          Text(
+                            'Indicators',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 14.sp),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

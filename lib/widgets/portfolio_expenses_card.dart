@@ -20,7 +20,7 @@ class _PortfolioExpensesState extends State<PortfolioExpenses> {
         width: 366.sp,
         height: isExpanded ? 180.sp : 155.h,
         decoration: BoxDecoration(
-          color: Colors.black,
+          color: const Color(0xFF070707),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(

@@ -9,7 +9,7 @@ class TechnicalIndicators extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: const BoxDecoration(
-        color: Colors.black,
+        color: Color(0xFF070707),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
