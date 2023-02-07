@@ -85,11 +85,15 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
             ),
           ),
           const SizedBox(height: 27),
-          optionMethod(checkBox1, () {
-            setState(() {
-              checkBox1 = !checkBox1;
-            });
-          }),
+          optionMethod(
+            checkBox1,
+            () {
+              setState(() {
+                checkBox1 = !checkBox1;
+              });
+            },
+            1,
+          ),
           SizedBox(height: 18.sp),
           Row(
             children: [
@@ -184,11 +188,15 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
             ],
           ),
           SizedBox(height: 35.h),
-          optionMethod(checkBox4, () {
-            setState(() {
-              checkBox4 = !checkBox4;
-            });
-          }),
+          optionMethod(
+            checkBox4,
+            () {
+              setState(() {
+                checkBox4 = !checkBox4;
+              });
+            },
+            2,
+          ),
           SizedBox(height: 27.h),
           optionMethod(
             checkBox5,
@@ -197,6 +205,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                 checkBox5 = !checkBox5;
               });
             },
+            3,
           ),
           const Spacer(),
           Padding(
@@ -206,7 +215,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                 // Add Two ElevatedButtons
                 SizedBox(
                   height: 68.sp,
-                  width: 170.sp,
+                  width: 160.w,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
@@ -228,7 +237,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
                 const Spacer(),
                 SizedBox(
                   height: 68.sp,
-                  width: 170.h,
+                  width: 160.h,
                   child: ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
@@ -255,7 +264,21 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
     );
   }
 
-  Row optionMethod(bool checkBox, Function() onTapp) {
+  Row optionMethod(bool checkBox, Function() onTapp, int boxNo) {
+    String text = '';
+    switch (boxNo) {
+      case 1:
+        text = 'MSI - Moving Average';
+        break;
+      case 2:
+        text = 'RSI - Relative Strength Index';
+        break;
+      case 3:
+        text = 'BOLL - Bollinger Bands';
+        break;
+
+      default:
+    }
     return Row(
       children: [
         GestureDetector(
@@ -289,7 +312,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
         const SizedBox(width: 16),
         Container(
           height: 38.sp,
-          width: 322.17.h,
+          width: 310.17.w,
           decoration: const BoxDecoration(
             color: Color(0xFF18181E),
             borderRadius: BorderRadius.all(
@@ -306,7 +329,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
             children: [
               SizedBox(width: 15.sp),
               Text(
-                'MA-Moving Average',
+                text,
                 style: TextStyle(
                   color: const Color(0xFFFFFFFF),
                   fontSize: 16.sp,
@@ -314,7 +337,7 @@ class _MyBottomSheetState extends State<MyBottomSheet> {
               ),
               const Spacer(),
               const Icon(
-                Icons.arrow_drop_up,
+                Icons.keyboard_arrow_down_outlined,
                 color: Color(0xFF4A4A4A),
               ),
               SizedBox(width: 14.sp),

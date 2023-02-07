@@ -41,12 +41,15 @@ class TimeBar extends ConsumerWidget {
                           const Icon(
                             Icons.line_axis,
                             color: Color(0xFFCACACA),
+                            size: 20,
                           ),
                           SizedBox(width: 2.sp),
                           Text(
                             'Indicators',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 14.sp),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14.w,
+                            ),
                           ),
                         ],
                       ),

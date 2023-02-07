@@ -23,7 +23,7 @@ class _PortfolioExpensesState extends State<PortfolioExpenses> {
           color: const Color(0xFF070707),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Column(
+        child: ListView(
           children: [
             Padding(
               padding: EdgeInsets.only(
@@ -185,7 +185,6 @@ class _PortfolioExpensesState extends State<PortfolioExpenses> {
                     ),
                   )
                 : const SizedBox.shrink(),
-            const Spacer(),
             GestureDetector(
               child: isExpanded
                   ? const Icon(

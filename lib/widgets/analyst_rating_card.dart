@@ -26,7 +26,8 @@ class _AnalystRatingCardState extends State<AnalystRatingCard> {
           color: const Color(0xFF070707),
           borderRadius: BorderRadius.circular(8),
         ),
-        child: Column(
+        child: ListView(
+          shrinkWrap: true,
           children: [
             Center(
               child: Row(
@@ -133,7 +134,6 @@ class _AnalystRatingCardState extends State<AnalystRatingCard> {
             ),
             // make this position always at bottom even if container expands
             isExpanded ? const ExpandedContent() : Container(),
-            const Spacer(),
             GestureDetector(
               child: isExpanded
                   ? const Icon(
